@@ -12,29 +12,34 @@ class Program
         int result = Multiply(a, b);
         bool passed = result == expected;
         
-        Console.Write($"{testName}: {a} × {b} = {result} ");
-        Console.WriteLine(passed ? "✓" : $"✗ (ожидалось {expected})");
+        // Используем ASCII символы вместо Unicode
+        Console.Write($"{testName}: {a} * {b} = {result} ");
+        
+        if (passed)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("[OK] ПРОЙДЕН");
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"[FAIL] ПРОВАЛ (ожидалось {expected})");
+        }
+        Console.ResetColor();
     }
     
     static void Main()
     {
-        Console.WriteLine("Пять модульных тестов умножения:\n");
+        Console.WriteLine("Пять модульных тестов умножения:");
+        Console.WriteLine("================================\n");
         
-        // 1. Базовый тест
         Test("Тест 1: Положительные числа", 6, 7, 42);
-        
-        // 2. Отрицательные числа
         Test("Тест 2: Отрицательные числа", -4, -5, 20);
-        
-        // 3. Разные знаки
         Test("Тест 3: Разные знаки", 9, -3, -27);
-        
-        // 4. Умножение на ноль
         Test("Тест 4: Умножение на ноль", 0, 15, 0);
-        
-        // 5. Умножение на единицу
         Test("Тест 5: Умножение на единицу", 1, -25, -25);
         
+        Console.WriteLine("\nНажмите любую клавишу для выхода...");
         Console.ReadKey();
     }
 }
