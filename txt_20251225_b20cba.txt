@@ -1,0 +1,11 @@
+Hello, World!
+This is a test file for ASCII to Unicode conversion.
+Programming in C++ is fun!
+Sample ASCII characters: !@#$%^&*()
+Numbers: 1234567890
+Lines:
+1. First line
+2. Second line
+3. Third line
+
+End of file.
